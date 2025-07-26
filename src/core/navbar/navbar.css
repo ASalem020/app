@@ -1,0 +1,167 @@
+/* Modern Navbar Styles */
+.navbar {
+  backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #1a1a2e 100%) !important;
+  transition: all 0.3s ease;
+  padding: 1.5rem 0 !important;
+  min-height: 100px;
+  border-bottom: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 153, 204, 0.05) 50%, rgba(0, 212, 255, 0.1) 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.navbar-brand {
+  background: linear-gradient(45deg, #00d4ff, #0099cc, #00ffff, #00d4ff);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+  font-size: 2.5rem !important;
+  font-weight: 700;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.nav-link {
+  position: relative;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #e0e0e0 !important;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem !important;
+  margin: 0 0.5rem;
+}
+
+.nav-link:hover {
+  transform: translateY(-2px);
+  color: #00d4ff !important;
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 153, 204, 0.1));
+  border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.nav-link.active {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.25), rgba(0, 153, 204, 0.15)) !important;
+  color: #00d4ff !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 212, 255, 0.4);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  color: #e0e0e0;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(224, 224, 224, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.navbar-toggler:hover {
+  transform: scale(1.1);
+}
+
+.btn-outline-light {
+  border-width: 3px;
+  border-color: #00d4ff !important;
+  color: #00d4ff !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.75rem 2rem;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, transparent, rgba(0, 212, 255, 0.05));
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-outline-light::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-outline-light:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #00d4ff, #0099cc) !important;
+  color: #0f0f23 !important;
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.5);
+  border-color: #00d4ff !important;
+}
+
+.btn-outline-light:hover::before {
+  left: 100%;
+}
+
+/* Smooth transitions for all interactive elements */
+.transition-all {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    padding: 1.5rem 0;
+  }
+  
+  .nav-link {
+    margin: 0.75rem 0;
+    padding: 1rem 1.5rem !important;
+    font-size: 1.3rem;
+  }
+  
+  .btn-outline-light {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+  }
+  
+  .navbar-brand {
+    font-size: 2rem !important;
+  }
+}
+
+/* Animation for navbar on scroll */
+.navbar.scrolled {
+  background: linear-gradient(135deg, rgba(15, 15, 35, 0.95) 0%, rgba(26, 26, 46, 0.95) 50%, rgba(15, 15, 35, 0.95) 100%) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: none;
+}

@@ -1,0 +1,43 @@
+/* Sticky Layout Styles */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 120px; /* Account for fixed navbar height */
+  min-height: calc(100vh - 120px - 400px); /* Viewport height minus navbar and footer */
+}
+
+/* Ensure the footer stays at bottom */
+app-footer {
+  margin-top: auto;
+}
+
+/* Global styles for better layout */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 100px; /* Slightly less padding on mobile */
+    min-height: calc(100vh - 100px - 350px);
+  }
+}
+
+@media (max-width: 576px) {
+  .main-content {
+    padding-top: 90px;
+    min-height: calc(100vh - 90px - 300px);
+  }
+}

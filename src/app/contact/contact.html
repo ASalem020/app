@@ -1,0 +1,199 @@
+<div class="contact-container">
+  <!-- Hero Section -->
+  <div class="contact-hero">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h1 class="contact-title">
+            <i class="fas fa-envelope me-3"></i>
+            Get In Touch
+          </h1>
+          <p class="contact-subtitle">
+            Ready to start your next project? Let's discuss how we can help bring your ideas to life.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Form Section -->
+  <div class="contact-form-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="contact-form-card">
+            <div class="form-header">
+              <h2 class="form-title">
+                <i class="fas fa-paper-plane me-2"></i>
+                Send Message
+              </h2>
+              <p class="form-subtitle">Fill out the form below and we'll get back to you as soon as possible.</p>
+            </div>
+
+            <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+              <div class="row">
+                <!-- Name Field -->
+                <div class="col-md-6 mb-4">
+                  <div class="form-group" [class.focused]="focusedField === 'name'">
+                    <label for="name" class="form-label">
+                      
+                      Full Name
+                    </label>
+                    <input 
+                      type="text" 
+                      id="name" 
+                      name="name" 
+                      class="form-control" 
+                      placeholder="Enter your full name"
+                      [(ngModel)]="formData.name"
+                      (focus)="onFieldFocus('name')"
+                      (blur)="onFieldBlur('name')"
+                      required>
+                    <div class="form-icon">
+                      <i class="fas fa-user"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Email Field -->
+                <div class="col-md-6 mb-4">
+                  <div class="form-group" [class.focused]="focusedField === 'email'">
+                    <label for="email" class="form-label">
+                     
+                      Email Address
+                    </label>
+                    <input 
+                      type="email" 
+                      id="email" 
+                      name="email" 
+                      class="form-control" 
+                      placeholder="Enter your email address"
+                      [(ngModel)]="formData.email"
+                      (focus)="onFieldFocus('email')"
+                      (blur)="onFieldBlur('email')"
+                      required>
+                    <div class="form-icon">
+                      <i class="fas fa-envelope"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Phone Field -->
+              <div class="mb-4">
+                <div class="form-group" [class.focused]="focusedField === 'phone'">
+                  <label for="phone" class="form-label">
+                   
+                    Phone Number
+                  </label>
+                  <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    class="form-control" 
+                    placeholder="Enter your phone number"
+                    [(ngModel)]="formData.phone"
+                    (focus)="onFieldFocus('phone')"
+                    (blur)="onFieldBlur('phone')">
+                  <div class="form-icon">
+                    <i class="fas fa-phone"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Subject Field -->
+              <div class="mb-4">
+                <div class="form-group" [class.focused]="focusedField === 'subject'">
+                  <label for="subject" class="form-label">
+                    
+                    Subject
+                  </label>
+                  <input 
+                    type="text" 
+                    id="subject" 
+                    name="subject" 
+                    class="form-control" 
+                    placeholder="What is this about?"
+                    [(ngModel)]="formData.subject"
+                    (focus)="onFieldFocus('subject')"
+                    (blur)="onFieldBlur('subject')"
+                    required>
+                  <div class="form-icon">
+                    <i class="fas fa-tag"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Message Field -->
+              <div class="mb-4">
+                <div class="form-group" [class.focused]="focusedField === 'message'">
+                  <label for="message" class="form-label">
+                    
+                    Message
+                  </label>
+                  <textarea 
+                    id="message" 
+                    name="message" 
+                    class="form-control" 
+                    rows="5"
+                    placeholder="Tell us about your project or inquiry..."
+                    [(ngModel)]="formData.message"
+                    (focus)="onFieldFocus('message')"
+                    (blur)="onFieldBlur('message')"
+                    required></textarea>
+                  <div class="form-icon textarea-icon">
+                    <i class="fas fa-comment"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="text-center">
+                <button type="submit" class="btn btn-submit" [disabled]="!contactForm.form.valid || isSubmitting">
+                  <i class="fas fa-paper-plane me-2"></i>
+                  <span *ngIf="!isSubmitting">Send Message</span>
+                  <span *ngIf="isSubmitting">Sending...</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Info Section -->
+  <div class="contact-info-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3 class="info-title">Our Location</h3>
+            <p class="info-text">2215 John Daniel Drive<br>Clark, MO 65243</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h3 class="info-title">Email Us</h3>
+            <p class="info-text">info&#64;devframework.com<br>support&#64;devframework.com</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <h3 class="info-title">Call Us</h3>
+            <p class="info-text">+1 (555) 123-4567<br>+1 (555) 987-6543</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
